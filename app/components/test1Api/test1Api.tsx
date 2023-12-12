@@ -24,7 +24,7 @@ async function getData() {
 
 
 export default async function Test0() {
-	let information = ''
+	let information
 	try {
 		const data: any = await getData();
 		const d = JSON.parse(data);
