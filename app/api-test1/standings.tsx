@@ -1,0 +1,51 @@
+import './style.sass'
+
+async function getStandings(code: string) {
+	const url = `https://api.football-data.org/v4/competitions/${code}/standings`
+	const options = { method: 'GET', headers: { 'X-Auth-Token': '0014e65e8fb4413dad4051cabc3a5f1e' } }
+	const response = await fetch(url, options)
+	return response.json()
+}
+
+
+const Standings = async ({ str }) => {
+    const data = await getStandings(str)
+    const table = await data.standings[0].table
+    console.log(data)
+
+    return (
+        <div className="standings">
+            <div className='headers'>
+                <div className='club'>Club</div>
+                <div className='stat'>Pl</div>
+                <div className='stat'>W</div>
+                <div className='stat'>D</div>
+                <div className='stat'>L</div>
+                <div className='stat'>GD</div>
+                <div className='stat'>Pts</div>
+            </div>
+            {table.map(i => {
+                return (
+                    <div className='team' key={i.team.id}>
+                        <div className='clubBox'>
+                            <p>{i.position}</p>
+                            <img alt='club emblem' src={i.team.crest} />
+                            <p>{i.team.name}</p>
+                        </div>
+                        <p className='stat'>{i.playedGames}</p>
+                        <p className='stat'>{i.won}</p>
+                        <p className='stat'>{i.draw}</p>
+                        <p className='stat'>{i.lost}</p>
+                        <p className='stat'>{i.goalDifference}</p>
+                        <p className='stat'>{i.points}</p>
+                    </div>
+                )
+            })}
+
+
+        </div>
+    )
+}
+
+
+export default Standings
