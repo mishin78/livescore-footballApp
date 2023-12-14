@@ -1,6 +1,27 @@
 import './style.sass'
 
-async function getStandings(code: string) {
+interface Team {
+    id: number;
+    crest: string;
+    name: string;
+  }
+  
+  interface StandingsData {
+    standings: [{
+      table: [{
+        position: number;
+        team: Team;
+        playedGames: number;
+        won: number;
+        draw: number;
+        lost: number;
+        goalDifference: number;
+        points: number;
+      }];
+    }];
+  }
+  
+async function getStandings(code: string): Promise<StandingsData> {
 	const url = `https://api.football-data.org/v4/competitions/${code}/standings`
 	const options = { method: 'GET', headers: { 'X-Auth-Token': '0014e65e8fb4413dad4051cabc3a5f1e' } }
 	const response = await fetch(url, options)
@@ -8,7 +29,7 @@ async function getStandings(code: string) {
 }
 
 
-const Standings = async ({ str }) => {
+const Standings: React.FC<{ str: string }> = async ({ str }) => {
     const data = await getStandings(str)
     const table = await data.standings[0].table
     console.log(data)
