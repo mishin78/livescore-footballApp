@@ -3,7 +3,37 @@ import './style.sass'
 import Standings from './standings'
 import { useState } from 'react'
 
-const Screen = ({ yData, tData, toData }) => {
+interface Match {
+    id: string;
+    homeTeam: {
+      crest: string;
+      name: string;
+    };
+    awayTeam: {
+      crest: string;
+      name: string;
+    };
+    score: {
+      fullTime: {
+        home: number;
+        away: number;
+      };
+    };
+  }
+  
+  interface ScreenProps {
+    yData: {
+      matches: Match[];
+    };
+    tData: {
+      matches: Match[];
+    };
+    toData: {
+      matches: Match[];
+    };
+  }
+
+const Screen: React.FC<ScreenProps> = ({ yData, tData, toData }) => {
     const [ isYOpen, setIsYOpen ] = useState(true)
     const [ isTodayOpen, setIsTodayOpen ] = useState(false)
     const [ isTomorrowOpen, setIsTomorrowOpen ] = useState(false)

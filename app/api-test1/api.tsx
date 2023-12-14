@@ -2,7 +2,7 @@ import Screen from './Screen';
 import './style.sass'
 import Standings from './standings';
 
-async function getData(day) {
+async function getData(day: string) {
 	const url = `https://api.football-data.org/v4/matches?date=${day}`;
 	const options = {
 		method: 'GET',
