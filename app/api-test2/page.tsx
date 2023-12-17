@@ -43,6 +43,7 @@ const ApiTest2: React.FC =  () => {
     const fetchData = async () => {
     const info = await getData();
     setMatches(info.data.match);
+    alert('Прийшли нові данні з сервера')
     };
 
     const formatDate = (inputDate: string) => {
@@ -55,7 +56,6 @@ const ApiTest2: React.FC =  () => {
   useEffect(() => {
     fetchData();
     const intervalId = setInterval(fetchData, 60000);
-    alert('Прийшли нові данні з сервера')
     return () => clearInterval(intervalId);
   }, []);
 
