@@ -1,6 +1,5 @@
 'use client'
 import './style.sass'
-import Standings from './standings'
 import { useState } from 'react'
 
 interface Match {

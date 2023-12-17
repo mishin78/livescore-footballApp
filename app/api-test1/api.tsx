@@ -1,6 +1,7 @@
 import Screen from './Screen';
 import './style.sass'
 import Standings from './standings';
+import Loading from './loading';
 
 async function getData(day: string) {
 	const url = `https://api.football-data.org/v4/matches?date=${day}`;
@@ -8,6 +9,7 @@ async function getData(day: string) {
 		method: 'GET',
 		headers: {
 			'X-Auth-Token': '0014e65e8fb4413dad4051cabc3a5f1e',
+            cache: 'no-store' 
 		}
 	};
 	

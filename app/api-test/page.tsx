@@ -1,5 +1,7 @@
-import Test0 from "../components/test1Api";
+'use client'
+import Test0 from "./test1Api";
 import './style.sass'
+
 
 const ApiTest0 = () => {
 

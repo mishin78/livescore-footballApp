@@ -20,11 +20,15 @@ interface Team {
       }];
     }];
   }
+
+  interface RequestOptions extends RequestInit {
+    headers: { [key: string]: string };
+  }
   
 async function getStandings(code: string): Promise<StandingsData> {
-	const url = `https://api.football-data.org/v4/competitions/${code}/standings`
-	const options = { method: 'GET', headers: { 'X-Auth-Token': '0014e65e8fb4413dad4051cabc3a5f1e' } }
-	const response = await fetch(url, options)
+	const url: string = `https://api.football-data.org/v4/competitions/${code}/standings`
+	const options: RequestOptions = { method: 'GET', headers: { 'X-Auth-Token': '0014e65e8fb4413dad4051cabc3a5f1e' }, cache: 'no-store'  }
+	const response = await fetch(url, options )
 	return response.json()
 }
 
@@ -32,7 +36,6 @@ async function getStandings(code: string): Promise<StandingsData> {
 const Standings: React.FC<{ str: string }> = async ({ str }) => {
     const data = await getStandings(str)
     const table = await data.standings[0].table
-    console.log(data)
 
     return (
         <div className="standings">
