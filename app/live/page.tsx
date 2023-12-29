@@ -9,7 +9,7 @@ export default async function Today() {
         return i.status === 'IN PLAY' || i.status === 'IN PLAY' || i.status === 'HALF TIME BREAK' || i.status === 'ADDED TIME'
     })
     const matches = sortLiveMatches(sortedData)
-    console.log(sortedData)
+    //console.log(sortedData)
 
 
     return (
