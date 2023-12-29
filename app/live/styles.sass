@@ -1,4 +1,4 @@
-.tomorrowBox
+.todayBox
     display: flex
     flex-direction: column
     align-items: center
@@ -51,10 +51,17 @@
                     font-size: 0.9rem
                     margin: 0.2rem 0 
                     display: inline
+                .liveScore
+                    color: #FF0000
+                    font-weight: 400
                 .home
                     text-align: end
                 .timeBox
                     justify-self: start
+                    .liveIndicator
+                        color: #FF0000
+                        font-weight: 400
+                        animation: live 1.2s infinite
                     p
                         font-size: 0.9rem
                         margin: 0.2rem
@@ -65,3 +72,10 @@
                 color: #FFFFFF
         
 
+
+    @keyframes live
+        0%
+            opacity: 0
+        100%
+            opacity: 1
+            

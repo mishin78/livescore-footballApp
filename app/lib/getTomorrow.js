@@ -11,7 +11,7 @@ const getTomorrowDate = () => {
     const ISOSstring = yesterday.toISOString()
     //console.log(ISOSstring)
     const res = String(ISOSstring).slice(0,10)
-    console.log(res)
+    //console.log(res)
     return res
 }
 

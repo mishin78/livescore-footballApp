@@ -13140,5 +13140,4 @@ for(let i of data) {
     d.set(i.id, {...i})
 }
 
-console.log(d)
 export default d
