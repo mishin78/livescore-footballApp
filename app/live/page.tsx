@@ -29,7 +29,7 @@ export default async function Today() {
                             <div className='match' key={j.id}>
                                 <div className='timeBox'>
                                     <p>{getTimeZone(j.scheduled) === '24:00' ? '00:00' : getTimeZone(j.scheduled)}</p>
-                                    <p className='liveScore'>{j.time}{j.time !== 'HT' && <span className='liveIndicator'>'</span>}</p>
+                                    <p className='liveScore'>{j.time}{j.time !== 'HT' && <span className='liveIndicator'>&apos</span>}</p>
                                 </div>
                                 <p className='home'>{j.home.name}</p>
                                 <p className='liveScore'>{j.scores.score}</p>
